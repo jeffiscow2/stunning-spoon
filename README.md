@@ -175,7 +175,6 @@ A bridge is a small service that sits between Matrix and Discord, relaying messa
 - Can reduce the incentive to fully migrate if people can "just stay on Discord"
 - Puppet mode requires users to share their Discord token with the bridge
 
-> 💡 **Our recommendation:** Use a bridge as a *temporary migration tool*, not a permanent setup. Set a cozy deadline, give everyone time to settle in, then retire the bridge when the community is ready. 🐾
 
 ### Bridge Software
 
