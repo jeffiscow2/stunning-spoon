@@ -115,6 +115,78 @@ This isn't some niche hobby project. Matrix is trusted at the highest levels:
 
 ---
 
+## 🌉 Bridging: Keep a Foot in Both Worlds (Optional)
+
+<details>
+<summary><strong>Click to expand bridging guide</strong></summary>
+
+Not everyone will switch overnight — and that's okay! Matrix supports **bridges** that connect Matrix rooms with Discord channels, so messages flow between both platforms in real time. Think of it as a portal between two cozy rooms. 🚪✨
+
+### How It Works (The Simple Version)
+
+A bridge is a small service that sits between Matrix and Discord, relaying messages, images, reactions, edits, and deletes back and forth. To users on either side, it feels like everyone is in the same chat.
+
+```
+┌──────────────┐                              ┌──────────────┐
+│              │     ┌──────────────────┐      │              │
+│   Matrix     │◄───►│  Bridge Service   │◄───►│   Discord    │
+│  Homeserver  │     │ (mautrix-discord) │     │   API        │
+│              │     └──────────────────┘      │              │
+└──────────────┘            │                  └──────────────┘
+                     ┌──────┴──────┐
+                     │  Database   │
+                     │ (maps IDs,  │
+                     │  rooms,     │
+                     │  users)     │
+                     └─────────────┘
+```
+
+### Two Modes
+
+| Mode | How It Works | What It Looks Like |
+|---|---|---|
+| **Relay / Bot Mode** | A single Discord bot relays all messages, prefixed with the Matrix sender's name | `[NeoFan42]: Hey everyone!` appears from the bot in Discord |
+| **Puppet Mode** | Users link their own Discord account — messages appear *as them* on both sides | Seamless; looks native on both platforms |
+
+### What Gets Bridged?
+
+| Feature | Bridged? | Notes |
+|---|---|---|
+| Text messages | ✅ | Markdown, mentions, formatting all converted |
+| Images / files / GIFs | ✅ | Re-uploaded across platforms |
+| Message edits | ✅ | Synced both ways |
+| Message deletes | ✅ | Synced both ways |
+| Reactions (emoji) | ✅ | Matrix ↔ Discord emoji reactions |
+| Typing indicators | ✅ | If enabled in config |
+| Threads | ⚠️ Partial | Basic support; not 1:1 |
+| Voice / video calls | ❌ | Fundamentally different tech |
+| Stickers | ⚠️ Partial | Sent as images |
+
+### When to Use a Bridge
+
+✅ **Great for:**
+- **Gradual migration** — run both platforms side by side while people get comfortable
+- **Letting holdouts participate** — friends who haven't switched yet can still chat with the Matrix crew
+- **Archiving** — capture Discord messages into Matrix for posterity
+
+⚠️ **Keep in mind:**
+- Adds another service to maintain
+- Some features (threads, stickers, embeds) don't translate perfectly
+- Can reduce the incentive to fully migrate if people can "just stay on Discord"
+- Puppet mode requires users to share their Discord token with the bridge
+
+> 💡 **Our recommendation:** Use a bridge as a *temporary migration tool*, not a permanent setup. Set a cozy deadline, give everyone time to settle in, then retire the bridge when the community is ready. 🐾
+
+### Bridge Software
+
+The recommended bridge for Discord is [**mautrix-discord**](https://github.com/mautrix/discord) by the mautrix team. It connects to your Matrix homeserver as an [Application Service](https://spec.matrix.org/latest/application-service-api/) and to Discord via a bot token.
+
+📖 **For the full technical setup guide** — including architecture details, configuration, Docker deployment, Application Service registration, and security considerations — see **[docs/bridges.md](./docs/bridges.md)**.
+
+</details>
+
+---
+
 ## 🧑‍💻 Technical Corner: Our Server Stack
 
 <details>
@@ -129,6 +201,7 @@ This isn't some niche hobby project. Matrix is trusted at the highest levels:
 | **maubot** | Plugin-based bot framework (moderation, fun, utilities) | [GitHub](https://github.com/maubot/maubot) |
 | **Mjolnir** | Dedicated moderation bot (ban lists, raid protection, spam) | [GitHub](https://github.com/matrix-org/mjolnir) |
 | **stickerpicker** | Custom sticker pack manager | [GitHub](https://github.com/maunium/stickerpicker) |
+| **mautrix-discord** | Discord ↔ Matrix bridge (optional, for migration) | [GitHub](https://github.com/mautrix/discord) |
 | **Caddy / nginx** | Reverse proxy with automatic TLS | — |
 
 ### 📞 Voice & Video: TURN Server Setup
@@ -229,6 +302,8 @@ Use [maunium/stickerpicker](https://github.com/maunium/stickerpicker) to create 
 - 📞 [Continuwuity TURN setup guide](https://github.com/continuwuity/continuwuity/blob/main/docs/turn.mdx)
 - 🤖 [maubot plugin directory](https://plugins.maubot.xyz/)
 - 😺 [Stickerpicker setup](https://github.com/maunium/stickerpicker)
+- 🌉 [Bridging guide (Discord ↔ Matrix)](./docs/bridges.md)
+- 📚 [mautrix bridge documentation](https://docs.mau.fi/bridges/)
 
 ---
 
