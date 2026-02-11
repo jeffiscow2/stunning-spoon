@@ -53,7 +53,7 @@ This isn't some niche hobby project. Matrix is trusted at the highest levels:
 
 ## 🤔 Quick FAQ: Who, What, Where, When, Why & How
 
-- **Who:** Anyone in our Neopets community who'd rather be a *neighbor* than a "user" on someone else's platform.
+- **Who:** Anyone in our community who'd rather be a *neighbor* than a "user" on someone else's platform.
 - **What:** Chat, images, custom stickers, bots, threads, video/voice calls — everything we love, plus privacy and control.
 - **Where:** Our own home server (e.g., `matrix.neopets.club`) — a cozy private neighborhood online.
 - **When:** Whenever we're ready! A trial run is easy; move over fully when comfortable.
@@ -234,7 +234,7 @@ Use [maunium/stickerpicker](https://github.com/maunium/stickerpicker) to create 
 
 ## 💌 TL;DR
 
-We love our Neopets community. We want it to be **safe**, **private**, **ours**, and — let's be real — **as adorable as possible**. Matrix gives us all of that, running on a server lightweight enough to live on a tiny VPS, with the same encryption trusted by NATO and the French government.
+We want our comms to be **safe**, **private**, **ours**, and — let's be real — **as adorable as possible**. Matrix gives us all of that, running on a server lightweight enough to live on a tiny VPS, with the same encryption trusted by NATO and the French government.
 
 > *Ready to decorate our corner of the web with pixels, plushies, and privacy? The door's always open, the mods are friendly, and the code is ours.* 🗝️✨
 
